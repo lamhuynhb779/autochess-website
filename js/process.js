@@ -1,10 +1,17 @@
 //
-var draggedHero;
+let draggedHero = null;
 
 //DOM Elements
 const waitingBoxes = document.querySelectorAll('.waiting-box');
+const boxes = document.querySelectorAll('.box');
 
-//Loop through each boxes element
+waitingBoxes.forEach((box) => {
+    box.addEventListener("dragstart", (e) => {
+        draggedHero = e.target;
+        console.log(draggedHero);
+    });
+});
+
 boxes.forEach((box) => {
     //When a draggable element dragged over a box element
     box.addEventListener("dragover", (e) => {
@@ -19,9 +26,13 @@ boxes.forEach((box) => {
 
     //When a draggable element is dropped on a box elemen
     box.addEventListener("drop", (e) => {
-        console.log(obj);
-        // box.appendChild(e.target);
-        // box.classList.remove("hovered");
+        // move dragged element to the selected drop target
+        if (e.target.className === 'box') {
+
+        }
+        draggedHero.parentNode.removeChild(draggedHero);
+        e.target.appendChild(draggedHero);
+        box.classList.remove("hovered");
     });
 });
 

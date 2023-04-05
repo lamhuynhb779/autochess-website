@@ -8,6 +8,7 @@ body{
     border: 1px solid black;
     display: inline-block;
     background-color: rgb(243, 236, 227);
+    overflow: hidden;
 }
 .waiting-row{
     background-color: rgb(137, 132, 126);
